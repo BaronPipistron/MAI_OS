@@ -32,7 +32,7 @@ void closeFD(const int fd) {
 
 void create_pipe(int* fd) {
     int pipe_num = pipe(fd);
-
+    
     if (pipe_num == -1) throw std::runtime_error("Failed with creating pipe");
     return;
 }
