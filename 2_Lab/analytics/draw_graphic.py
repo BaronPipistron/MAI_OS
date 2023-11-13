@@ -16,7 +16,7 @@ def main():
             Y.append(float(ROWS[1]))
 
     plt.plot(X, Y)
-    plt.title('Time of workers stat')
+    plt.title('Time of threads stat')
     plt.xlabel('Number of threads')
     plt.ylabel('Time [ms]')
     plt.grid()

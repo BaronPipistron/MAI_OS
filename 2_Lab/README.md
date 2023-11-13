@@ -28,3 +28,34 @@
 Отсортировать массив целых чисел при помощи параллельного алгоритма быстрой 
 сортировки
 ```
+
+### Команды для запуска:
+Build project:
+```
+make build
+```
+
+Run program:
+```
+make run threads={THREADS_COUNT}
+```
+
+Check strace:
+```
+make strace
+```
+
+Generate test data:
+```
+make generate-test
+```
+
+Show graphic with statistic: Ox - Number of threads, Oy - Time [ms]
+```
+make show-graphic
+```
+
+Clean
+```
+make clean
+```
