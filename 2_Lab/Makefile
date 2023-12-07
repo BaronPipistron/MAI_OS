@@ -11,7 +11,7 @@ clean:
 	rm -rf ./build/
 
 strace:
-	strace -f ./build/*_exe 16
+	strace -f ./build/*_exe $(threads)
 
 generate-test:
 	python3 ./generators/generator.py
