@@ -61,3 +61,14 @@ make run-runtime
 Run program with compile time linking:
 ```
 make run-comptime
+```
+
+Check strace with runtime linking:
+```
+make strace-runtime
+```
+
+Check strace with compile time linking:
+```
+make strace-comptime
+```

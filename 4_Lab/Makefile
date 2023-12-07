@@ -21,5 +21,11 @@ run-runtime:
 run-comptime:
 	cd build; ./run $(mode) $(a) $(b)=0
 
+strace-runtime:
+	cd build; strace -f ./run_runtime $(mode) $(a) $(b)=0
+
+strace-comptime:
+	cd build; strace -f ./run $(mode) $(a) $(b)=0
+
 clean:
 	rm -rf build		
