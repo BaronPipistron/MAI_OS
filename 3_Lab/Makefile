@@ -5,13 +5,13 @@ build: clean
 	cd ./build; cmake ..; make all
 
 run:
-	./build/*_run_exe
+	./build/src/*_run_exe
 	
 clean:
 	rm -rf ./build/
 
 strace:
-	strace -f ./build/*_run_exe
+	strace -f ./build/src/*_run_exe
 
 unlink-shm:
-	rm /dev/shm/*lab3*
+	rm /dev/shm/*
