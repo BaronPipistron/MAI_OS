@@ -5,7 +5,6 @@
 #include <cstring>
 
 #define BUFFER 16
-#define ITERATIONS 5
 #define CHILD_NAME "./build/lab3_run_child"
 
 namespace processes {
