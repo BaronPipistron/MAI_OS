@@ -309,7 +309,7 @@ int main(int argc, char** argv) {
               left_pid, right_pid, id, request);
       }
 
-      if (command == "pingall") {
+      if (command == "ping") {
          ping(command_stream, parent_socket, left_socket, right_socket,
               left_pid, right_pid, id, request);
       }

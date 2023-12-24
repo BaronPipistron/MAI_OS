@@ -1,14 +1,16 @@
 .PHONY: build run clean strace
 
-build: clean
-	mkdir build
-	cd ./build; cmake ..; make all
+build:
+	mkdir bin
+	g++ run.cpp -o ./server -lzmq
+	g++ node.cpp -o ./node -lzmq
 
 run:
-	./build/*_exe
+	./server
 
 clean:
-	rm -rf ./build/
+	rm -rf ./server
+	rm -rf ./node
 
 strace:
-	strace -f ./build/*_exe
+	strace -f ./server

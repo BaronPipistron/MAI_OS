@@ -98,6 +98,8 @@ int main() {
    std::cout << "4. pingall" << std::endl;
    std::cout << "5. exit" << std::endl << std::endl;
 
+   std::vector<int> node_ids;
+
    while (true) {
       std::cin >> command;
       int node_id = 0;
@@ -114,6 +116,7 @@ int main() {
          }
 
          node_id = stoi(id_str);
+         node_ids.push_back(node_id);
 
          if (root_pid == 0) {
             zmq_bind(root_socket,
@@ -204,9 +207,31 @@ int main() {
             continue;
          }
 
-         std::string request = "pingall";
-         send_message(root_socket, request);
-         reply = receive_message(root_socket);
+         std::string reply_1 = "";
+
+         for (size_t i = 0; i != node_ids.size(); ++i) {
+            if (!is_number(std::to_string(node_ids[i]))) {
+               continue;
+            }
+
+            std::string request = "ping " + std::to_string(node_ids[i]);
+            send_message(root_socket, request);
+            reply_1 = receive_message(root_socket);
+
+            if (reply_1 == "Ok: 1") {
+               reply += std::to_string(node_ids[i]) + ';';
+            } else {
+               continue;
+            }
+         }
+
+         if (reply.empty()) {
+            reply = "Ok: -1";
+         } else {
+            reply = "Ok: " + reply;
+         }
+         reply.pop_back();
+
          std::cout << reply << std::endl;
       }
 
